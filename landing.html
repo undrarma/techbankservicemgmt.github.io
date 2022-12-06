@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://designer.igniteui.com/packages/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://designer.igniteui.com/css/themes/infragistics/infragistics.theme.css">
+    <link rel="stylesheet" href="https://designer.igniteui.com/css/structure/infragistics.css">
+    <!--
+			Update the Ignite UI script references to your licensed copies before deploying.
+			Ignite UI License: https://www.infragistics.com/legal/license/ultimate/
+		-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+    <script src="https://designer.igniteui.com/js/infragistics.core.js"></script>
+    <script src="https://designer.igniteui.com/js/infragistics.lob.js"></script>
+    <!-- You may remove the datasources.js script if you are not using Designer sample data. -->
+    <script src="https://designer.igniteui.com/js/datasources.js"></script>
+    <script id="code">
+        $(document).ready(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <div style="background-color:rgb(129, 205, 255);
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-left: 100px;
+        margin-right: 100px;
+        padding-bottom: 25px;">
+        <p id="text1" style="
+            padding-top: 25px;
+            padding-left: 25px;
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+        ">Bank TechBank</p>
+        <p style="
+       text-align: center;
+       font-weight: bold;">Service Management</p>
+        <p id="accClosureHeader" style="text-align: center;">Account Closure Protocol : NUM</p>
+        <img src="img/imgbank.png" style="
+        position:absolute;
+        width: 5%;
+        top:2%;
+        ">
+    </div>
+    <div id="container1" style="
+    margin-top: 3%;
+    margin-left: 16%">
+        <div id=" row1" class="row">
+        </div>
+        <div id="table" style="margin: 0px 25% 25%;">
+            <table>
+                <tr>
+                    <th>SERVICE</th>
+                    <th>TYPE</th>
+                    <th>COMPLETE</th>
+                </tr>
+                <tr>
+                    <td>Payment Service Closure</td>
+                    <td><a id="psc">Manual - send email to customer</a></td>
+                    <td class="check"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>IB/Phone Banking Contract Revoked</td>
+                    <td><button onclick="checkBox('1')">TRX</button></td>
+                    <td class="check"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Bancomat Contract Revoked</td>
+                    <td><button onclick="checkBox('2')">TRX</button></td>
+                    <td class="check"><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Remote Banking Contract Revoked</td>
+                    <td><a>Manual - contact financial dept</a></td>
+                    <td class="check"><input type="checkbox"></td>
+                </tr>
+
+            </table>
+            <div style="margin-top:15px;margin-left:40%">
+                <button onclick="navigate()"">Save & Exit</button>
+                        <button style=" background-color:rgb(0, 153, 255)" onclick="navigate()">Confirm
+                    Closure</button>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    var protocol = urlParams.get('protocolNum');
+    document.getElementById('accClosureHeader').innerHTML = "Account Closure Protocol : " + "<span style ='font-size:30px; border: thick solid rgb(0,0,0)'<b>" + protocol + "</b></span>";
+    document.getElementById('psc').setAttribute('href', './closure.html?protocolNum=' + protocol)
+
+    function checkBox(index) {
+        var currStatus = document.getElementsByClassName('check')[index].children[0].checked;
+        if (currStatus == false) {
+            document.getElementsByClassName('check')[index].children[0].checked = true
+        } else {
+            document.getElementsByClassName('check')[index].children[0].checked = false;
+        }
+    }
+
+    function navigate() {
+        console.log("Navigate clicked")
+        window.location.replace('./index.html');
+
+
+    }
+</script>
+
+
+
+<style>
+    th {
+        text-align: center;
+    }
+
+    .check {
+        text-align: center;
+    }
+</style>
