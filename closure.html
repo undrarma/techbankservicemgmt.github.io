@@ -82,7 +82,7 @@
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
     var protocol = urlParams.get('protocolNum');
-    document.getElementById('accClosureHeader').innerHTML = "Account Closure Protocol : " + "<span style ='font-size:30px; border: thick solid rgb(0,0,0)'><b>" + protocol + "</b></span>";
+    document.getElementById('accClosureHeader').innerHTML = "Account Closure Protocol : " + "<span style ='font-size:30px; border: thick solid rgb(0,0,0)'<b>" + protocol + "</b></span>";
     document.getElementById('accClosureHeader1').innerHTML = "Here is the list of services that need to be disabled for user : " + "<span style ='font-size:30px;'><b>" + protocol + "</b></span>";
     var randomNumber = Math.floor(Math.random() * 1000000);
     document.getElementById('ccard_id1').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
