@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://designer.igniteui.com/packages/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://designer.igniteui.com/css/themes/infragistics/infragistics.theme.css">
+    <link rel="stylesheet" href="https://designer.igniteui.com/css/structure/infragistics.css">
+    <!--
+			Update the Ignite UI script references to your licensed copies before deploying.
+			Ignite UI License: https://www.infragistics.com/legal/license/ultimate/
+		-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+    <script src="https://designer.igniteui.com/js/infragistics.core.js"></script>
+    <script src="https://designer.igniteui.com/js/infragistics.lob.js"></script>
+    <!-- You may remove the datasources.js script if you are not using Designer sample data. -->
+    <script src="https://designer.igniteui.com/js/datasources.js"></script>
+    <script id="code">
+        $(document).ready(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <div style="background-color:rgb(129, 205, 255);
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-left: 100px;
+        margin-right: 100px;
+        padding-bottom: 25px;">
+        <p id="text1" style="
+            padding-top: 25px;
+            padding-left: 25px;
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+        ">Bank TechBank</p>
+        <p style="
+        text-align: center;
+        font-weight: bold;">Service Management</p>
+        <p id="accClosureHeader" style="text-align: center;">Account Closure Protocol : NUM</p>
+        <img src="img/imgbank.png" style="
+        position:absolute;
+        width: 5%;
+        top:2%;
+        ">
+    </div>
+    <div id="container1" style="
+    margin-top: 1%;">
+        <div style="margin: 0px 15%;">
+            <p id="text1" style="font-size: 25px;"><b>Payment Service Closure</b></p>
+            <p id="accClosureHeader1">Here is the list of services that need to be disabled for user : NUM</p>
+            <p style="color: red;"><b style="font-size: 15px;">Important:</b> Contact user via email to communicate the
+                closures of the services.
+            </p>
+            <ul>
+                <li id="ccard_id1">CREDIT CARD #</li>
+                <li id="ccard_id2">CREDIT CARD #</li>
+                <li>E-WALLET</li>
+                <li>DIRECT DEBIT - UNICEF</li>
+                <li id="paypal_id">DIRECT DEBIT - PAYPAL</li>
+            </ul>
+        </div>
+        <div style="margin-top:10px;margin-left:15%">
+            <button id="back" onclick="navigate()">Back</button>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    var protocol = urlParams.get('protocolNum');
+    document.getElementById('accClosureHeader').innerHTML = "Account Closure Protocol : " + "<span style ='font-size:30px; border: thick solid rgb(0,0,0)'><b>" + protocol + "</b></span>";
+    document.getElementById('accClosureHeader1').innerHTML = "Here is the list of services that need to be disabled for user : " + "<span style ='font-size:30px;'><b>" + protocol + "</b></span>";
+    var randomNumber = Math.floor(Math.random() * 1000000);
+    document.getElementById('ccard_id1').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
+    var randomNumber = Math.floor(Math.random() * 1000000);
+    document.getElementById('ccard_id2').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
+
+    function navigate() {
+        console.log("Navigate clicked")
+        var protocol = urlParams.get('protocolNum');
+        window.location.replace('./index.html?protocolNum=' + protocol);
+
+
+    }
+</script>
+
+
+<style>
+    th {
+        text-align: center;
+    }
+
+    .check {
+        text-align: center;
+    }
+</style>
