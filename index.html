@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://designer.igniteui.com/packages/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="https://designer.igniteui.com/css/themes/infragistics/infragistics.theme.css">
+	<link rel="stylesheet" href="https://designer.igniteui.com/css/structure/infragistics.css">
+	<!--
+			Update the Ignite UI script references to your licensed copies before deploying.
+			Ignite UI License: https://www.infragistics.com/legal/license/ultimate/
+		-->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+	<script src="https://designer.igniteui.com/js/infragistics.core.js"></script>
+	<script src="https://designer.igniteui.com/js/infragistics.lob.js"></script>
+	<!-- You may remove the datasources.js script if you are not using Designer sample data. -->
+	<script src="https://designer.igniteui.com/js/datasources.js"></script>
+	<script id="code">
+		$(document).ready(function () {
+
+		});
+	</script>
+</head>
+
+<body>
+	<div style="background-color:rgb(129, 205, 255);
+				padding-left: 25px;
+				padding-right: 25px;
+				margin-left: 100px;
+				margin-right: 100px;">
+		<p id="text1" style="
+			padding-top: 25px;
+			padding-left: 25px;
+			font-weight: bold;
+			font-size: 30px;
+			text-align: center;
+    	">Bank TechBank</p>
+		<p style="
+			text-align: center;
+			font-weight: bold;">Service Management</p>
+		<p id="accClosureHeader" style="
+			text-align: center;
+			padding-bottom: 25px;">Address: 123, Maple Street, IT</p>
+		<img src="img/imgbank.png" style="
+			position:absolute;
+			width: 5%;
+			top:2%;
+			">
+	</div>
+	<div id="container1">
+		<div id="row2" class="row" style="
+			margin-top:1%;
+			text-align: center;
+			">Insert the protocol number of the user to manage</div>
+		<div id="row1" class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4">
+				<input id="input1" style="
+					margin-right: 150px;
+					margin-left: 100px;
+					margin-top: 5%;" placeholder="Insert Protocol Number" contenteditable="true" />
+				<button id="button1" style="background-color:rgb(0, 153, 255)" onclick='navigate()'>Take In
+					Charge</button>
+			</div>
+			<div class="col-md-4">
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+<script>
+	function navigate() {
+		console.log("Navigate clicked")
+		var protocolNum = document.getElementById('input1').value;
+		window.location.replace('./landing.html?protocolNum=' + protocolNum);
+
+
+	}
+
+
+</script>
