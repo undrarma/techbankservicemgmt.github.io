@@ -109,6 +109,7 @@
     for (var i = 0; i < list.length; i++) {
         const li = list[i];
         li.id = `service-${i}`;
+        li.classList.add('services');
     }
     document.getElementById('ccard_id1').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
     var randomNumber = Math.floor(Math.random() * 1000000);
