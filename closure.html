@@ -56,12 +56,12 @@
             <p style="color: red;"><b style="font-size: 15px;">Important:</b> Contact user via email to communicate the
                 closures of the services.
             </p>
-            <ul>
-                <li id="ccard_id1">CREDIT CARD #</li>
+            <ul id="list_of_services">
+                <!--            <li id="ccard_id1">CREDIT CARD #</li>
                 <li id="ccard_id2">CREDIT CARD #</li>
                 <li>E-WALLET</li>
                 <li>DIRECT DEBIT - UNICEF</li>
-                <li id="paypal_id">DIRECT DEBIT - PAYPAL</li>
+                <li id="paypal_id">DIRECT DEBIT - PAYPAL</li>-->
             </ul>
         </div>
         <div style="margin-top:10px;margin-left:15%">
@@ -84,7 +84,32 @@
     var protocol = urlParams.get('protocolNum');
     document.getElementById('accClosureHeader').innerHTML = "Account Closure Protocol : " + "<span style ='font-size:30px; border: thick solid rgb(0,0,0)'<b>" + protocol + "</b></span>";
     document.getElementById('accClosureHeader1').innerHTML = "Here is the list of services that need to be disabled for user : " + "<span style ='font-size:30px;'><b>" + protocol + "</b></span>";
-    var randomNumber = Math.floor(Math.random() * 1000000);
+    // Create a random number of services to be closed
+    var randomNumberOfServices = Math.floor(Math.random() * 7 + 1);
+    var randomNumberCC1 = Math.floor(Math.random() * 1000000);
+    var randomNumberCC2 = Math.floor(Math.random() * 1000000);
+    var randomNumberCC3 = Math.floor(Math.random() * 1000000);
+    var listOfServices = [
+        'CREDIT CARD #' + randomNumberCC1,
+        'DEBIT CARD #' + randomNumberCC2,
+        'E-WALLET',
+        'DIRECT DEBIT - UNICEF',
+        'DIRECT DEBIT - PAYPAL',
+        'DIRECT DEBIT - SATISPAY',
+        'CREDIT CARD #' + randomNumberCC3];
+    for (var i = 0; i < randomNumberOfServices; i++) {
+        console.log(listOfServices[i]);
+        var service = listOfServices[i];
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(service));
+        document.getElementById("list_of_services").appendChild(li);
+    }
+
+    const list = document.querySelectorAll("#list_of_services li");
+    for (var i = 0; i < list.length; i++) {
+        const li = list[i];
+        li.id = `service-${i}`;
+    }
     document.getElementById('ccard_id1').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
     var randomNumber = Math.floor(Math.random() * 1000000);
     document.getElementById('ccard_id2').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
