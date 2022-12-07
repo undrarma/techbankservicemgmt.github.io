@@ -56,13 +56,15 @@
             <p style="color: red;"><b style="font-size: 15px;">Important:</b> Contact user via email to communicate the
                 closures of the services.
             </p>
-            <ul id="list_of_services">
-                <!--            <li id="ccard_id1">CREDIT CARD #</li>
+            <table id="list_of_services">
+            </table>
+            <!--<ul id="list_of_services">
+                <li id="ccard_id1">CREDIT CARD #</li>
                 <li id="ccard_id2">CREDIT CARD #</li>
                 <li>E-WALLET</li>
                 <li>DIRECT DEBIT - UNICEF</li>
-                <li id="paypal_id">DIRECT DEBIT - PAYPAL</li>-->
-            </ul>
+                <li id="paypal_id">DIRECT DEBIT - PAYPAL</li>
+            </ul>-->
         </div>
         <div style="margin-top:10px;margin-left:15%">
             <button id="back" onclick="navigate()">Back</button>
@@ -97,20 +99,39 @@
         'DIRECT DEBIT - PAYPAL',
         'DIRECT DEBIT - SATISPAY',
         'CREDIT CARD #' + randomNumberCC3];
+    /*    for (var i = 0; i < randomNumberOfServices; i++) {
+            console.log(listOfServices[i]);
+            var service = listOfServices[i];
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(service));
+            document.getElementById("list_of_services").appendChild(li);
+        }
+    
+        const list = document.querySelectorAll("#list_of_services tr");
+        for (var i = 0; i < list.length; i++) {
+            const li = list[i];
+            li.id = `service-${i}`;
+            li.classList.add('services');
+        }*/
+
     for (var i = 0; i < randomNumberOfServices; i++) {
         console.log(listOfServices[i]);
         var service = listOfServices[i];
-        var li = document.createElement('li');
-        li.appendChild(document.createTextNode(service));
-        document.getElementById("list_of_services").appendChild(li);
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        td.appendChild(document.createTextNode(service));
+        tr.appendChild(td);
+        document.getElementById("list_of_services").appendChild(tr);
     }
 
-    const list = document.querySelectorAll("#list_of_services li");
+    const list = document.querySelectorAll("#list_of_services td");
     for (var i = 0; i < list.length; i++) {
         const li = list[i];
         li.id = `service-${i}`;
         li.classList.add('services');
     }
+
+
     document.getElementById('ccard_id1').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
     var randomNumber = Math.floor(Math.random() * 1000000);
     document.getElementById('ccard_id2').innerHTML = "CREDIT CARD <b>#" + randomNumber + "</b>";
